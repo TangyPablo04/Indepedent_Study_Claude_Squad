@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mock Charts · FCB AI Aptitude Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-wordmark">FCB × AI</span>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="what-we-did.html">What We Did</a></li>
+    <li><a href="lessons.html">Lessons Learned</a></li>
+    <li><a href="charts.html" class="active">Mock Charts</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" onclick="toggleMenu()">&#9776;</button>
+</nav>
+
+<main class="page-main">
+
+  <div class="page-header">
+    <div class="page-label">Illustrative Data</div>
+    <h1>Mock Charts</h1>
+    <p class="page-intro">These charts illustrate what our findings could have looked like with a full sample of ~400 respondents. All values are simulated based on our theoretical framework and plausible effect sizes from comparable studies. They are not findings — they are a demonstration of the analytical framework we designed.</p>
+  </div>
+
+  <section class="chart-section">
+    <div class="chart-meta">
+      <span class="chart-fig">Figure 1</span>
+      <h2>Average AI aptitude scores by major</h2>
+      <p>Self-perception (1–5 Likert) and actual demonstrated score (0–4 composite) shown side-by-side. A consistent gap across all majors indicates widespread overestimation of AI readiness. MIS students score highest on both dimensions; Management students score lowest.</p>
+    </div>
+    <div class="legend">
+      <span class="legend-item"><span class="legend-swatch" style="background:#2563a8"></span>Self-perception (1–5)</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#0f7a5a"></span>Actual score (0–4)</span>
+    </div>
+    <div class="chart-wrap" style="height:300px">
+      <canvas id="chart1" role="img" aria-label="Grouped bar chart showing self-perception and actual AI scores by business major">MIS: perception 4.1, actual 3.2. Finance: 3.8, 2.9. Supply Chain: 3.5, 2.6. Accounting: 3.3, 2.3. Marketing: 3.1, 2.0. Management: 2.8, 1.7.</canvas>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <div class="chart-meta">
+      <span class="chart-fig">Figure 2</span>
+      <h2>Perception–actual gap by major</h2>
+      <p>The gap between self-reported and demonstrated AI readiness. Bars exceeding 1.0 (shown in a darker tone) represent majors where overestimation is most pronounced. Marketing and Management students overestimate their readiness most significantly.</p>
+    </div>
+    <div class="chart-wrap" style="height:260px">
+      <canvas id="chart2" role="img" aria-label="Horizontal bar chart showing the gap between self-perception and actual AI scores by major">Marketing: 1.1 gap. Management: 1.1. Accounting: 1.0. Supply Chain: 0.9. Finance: 0.9. MIS: 0.9.</canvas>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <div class="chart-meta">
+      <span class="chart-fig">Figure 3</span>
+      <h2>One-way ANOVA — actual score by major</h2>
+      <p>Tests whether mean actual AI scores differ significantly across majors. A p-value below 0.05 indicates statistically significant differences exist between at least two groups.</p>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-label">F-statistic</div>
+        <div class="stat-value">4.83</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">p-value</div>
+        <div class="stat-value sig">0.003</div>
+        <div class="stat-note">significant at α = 0.05</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">df between</div>
+        <div class="stat-value">5</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">df within</div>
+        <div class="stat-value">139</div>
+      </div>
+    </div>
+    <p class="chart-subhead">Post-hoc Tukey HSD — pairwise mean differences</p>
+    <p style="font-size:0.85rem;color:#666;margin:0 0 12px;">Darker bars indicate statistically significant pairwise differences (mean difference ≥ 0.8).</p>
+    <div class="chart-wrap" style="height:240px">
+      <canvas id="chart3" role="img" aria-label="Bar chart of Tukey HSD pairwise mean differences between majors">MIS vs Management: 1.5. MIS vs Marketing: 1.2. Finance vs Management: 1.2. Finance vs Marketing: 0.9. MIS vs Accounting: 0.9. Finance vs Accounting: 0.6.</canvas>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <div class="chart-meta">
+      <span class="chart-fig">Figure 4</span>
+      <h2>Two-way ANOVA — actual score by major × academic year</h2>
+      <p>Tests the independent effects of major and academic year on actual AI scores, and whether those effects interact. Both main effects are significant; the interaction term is not, suggesting that the advantage of being in MIS or Finance holds across all class levels.</p>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <div class="stat-label">Major effect (F)</div>
+        <div class="stat-value">4.83</div>
+        <div class="stat-note sig-note">p = 0.003</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Year effect (F)</div>
+        <div class="stat-value">2.91</div>
+        <div class="stat-note sig-note">p = 0.037</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Interaction (F)</div>
+        <div class="stat-value">1.14</div>
+        <div class="stat-note">p = 0.34 (ns)</div>
+      </div>
+    </div>
+    <div class="legend" style="margin-top:1rem">
+      <span class="legend-item"><span class="legend-swatch" style="background:#2563a8"></span>MIS</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#0f7a5a;"></span>Finance</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#c47a15;border:2px dashed #c47a15;background:transparent"></span>Supply Chain</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#666"></span>Accounting</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#b84a24"></span>Marketing</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#4a3aaa"></span>Management</span>
+    </div>
+    <div class="chart-wrap" style="height:280px">
+      <canvas id="chart4" role="img" aria-label="Line chart of actual AI scores by academic year, broken out by major. All majors improve with year; MIS consistently leads.">All majors show upward trend from freshman to senior year. MIS leads throughout, Management lowest throughout.</canvas>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <div class="chart-meta">
+      <span class="chart-fig">Figure 5</span>
+      <h2>K-means cluster analysis — student AI profiles (k = 3)</h2>
+      <p>Unsupervised clustering reveals three distinct student archetypes based on the combination of self-perception and actual AI score. Clusters were identified using k-means with k=3, selected via elbow method. Each cluster represents a meaningfully different relationship to AI readiness.</p>
+    </div>
+    <div class="legend">
+      <span class="legend-item"><span class="legend-swatch" style="background:#2563a8"></span>Innovators (n ≈ 28)</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#c47a15"></span>Skeptics (n ≈ 52)</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#888"></span>Novices (n ≈ 65)</span>
+    </div>
+    <div class="chart-wrap" style="height:360px">
+      <canvas id="chart5" role="img" aria-label="Scatter plot with three k-means clusters. Innovators: high perception, high actual. Skeptics: high perception, moderate actual. Novices: low on both.">Three clusters visible. Innovators upper-right quadrant. Skeptics mid-left. Novices lower-left.</canvas>
+    </div>
+    <div class="cluster-cards">
+      <div class="cluster-card" style="border-top:3px solid #2563a8">
+        <h3 style="color:#2563a8">Innovators</h3>
+        <p>High self-perception · High actual score<br>Predominantly MIS and upper-division Finance. Comfortable applying AI to complex business tasks. Likely to be early adopters in the workforce.</p>
+      </div>
+      <div class="cluster-card" style="border-top:3px solid #c47a15">
+        <h3 style="color:#c47a15">Skeptics</h3>
+        <p>High self-perception · Moderate actual score<br>Mixed majors, often sophomores and juniors. Overestimate their readiness relative to demonstrated performance — the most common pattern.</p>
+      </div>
+      <div class="cluster-card" style="border-top:3px solid #888">
+        <h3 style="color:#555">Novices</h3>
+        <p>Low self-perception · Low actual score<br>Largely freshmen, Management and Marketing majors. Aware of their limitations. Highest potential for growth with targeted AI literacy instruction.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Fowler College of Business · San Diego State University · 2026</p>
+  <p>Conducted under SDSU IRB guidelines · Claude Squad Independent Study</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="nav.js"></script>
+<script>
+const majors = ['MIS','Finance','Supply Chain','Accounting','Marketing','Management'];
+const perception = [4.1, 3.8, 3.5, 3.3, 3.1, 2.8];
+const actual = [3.2, 2.9, 2.6, 2.3, 2.0, 1.7];
+const gridColor = 'rgba(0,0,0,0.07)';
+const textColor = '#555';
+
+new Chart(document.getElementById('chart1'), {
+  type:'bar',
+  data:{
+    labels:majors,
+    datasets:[
+      {label:'Self-perception',data:perception,backgroundColor:'#2563a8',borderRadius:3,barPercentage:0.7},
+      {label:'Actual score',data:actual,backgroundColor:'#0f7a5a',borderRadius:3,barPercentage:0.7}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:{color:textColor,font:{size:12,family:'DM Sans'}},grid:{color:gridColor}},
+      y:{min:0,max:5,ticks:{color:textColor,font:{size:11,family:'DM Sans'}},grid:{color:gridColor},title:{display:true,text:'Score',color:textColor,font:{size:11,family:'DM Sans'}}}
+    }
+  }
+});
+
+const gaps = majors.map((m,i)=>({major:m,gap:parseFloat((perception[i]-actual[i]).toFixed(1))})).sort((a,b)=>b.gap-a.gap);
+new Chart(document.getElementById('chart2'), {
+  type:'bar',
+  data:{
+    labels:gaps.map(d=>d.major),
+    datasets:[{label:'Gap',data:gaps.map(d=>d.gap),backgroundColor:gaps.map(d=>d.gap>=1.0?'#b84a24':'#aaa'),borderRadius:3}]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{min:0,max:1.5,ticks:{color:textColor,font:{size:11,family:'DM Sans'}},grid:{color:gridColor},title:{display:true,text:'Perception minus actual',color:textColor,font:{size:11,family:'DM Sans'}}},
+      y:{ticks:{color:textColor,font:{size:12,family:'DM Sans'}},grid:{color:gridColor}}
+    }
+  }
+});
+
+const pairs = ['MIS vs Mgmt','MIS vs Mktg','Finance vs Mgmt','Finance vs Mktg','MIS vs Acct','Finance vs Acct'];
+const diffs = [1.5,1.2,1.2,0.9,0.9,0.6];
+new Chart(document.getElementById('chart3'), {
+  type:'bar',
+  data:{
+    labels:pairs,
+    datasets:[{label:'Mean difference',data:diffs,backgroundColor:diffs.map(d=>d>=0.8?'#2563a8':'#bbb'),borderRadius:3}]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:{color:textColor,font:{size:11,family:'DM Sans'},maxRotation:20},grid:{color:gridColor}},
+      y:{min:0,max:2,ticks:{color:textColor,font:{size:11,family:'DM Sans'}},grid:{color:gridColor},title:{display:true,text:'Mean difference',color:textColor,font:{size:11,family:'DM Sans'}}}
+    }
+  }
+});
+
+const years = ['Freshman','Sophomore','Junior','Senior'];
+const byYear = {
+  'MIS':          [2.4,2.8,3.1,3.6],
+  'Finance':      [2.1,2.5,2.8,3.3],
+  'Supply Chain': [1.9,2.2,2.6,3.0],
+  'Accounting':   [1.7,2.0,2.3,2.7],
+  'Marketing':    [1.5,1.8,2.0,2.4],
+  'Management':   [1.2,1.5,1.8,2.1]
+};
+const lineColors = ['#2563a8','#0f7a5a','#c47a15','#666','#b84a24','#4a3aaa'];
+const dashPatterns = [[],[6,3],[3,3],[8,4,2,4],[4,2],[2,2]];
+new Chart(document.getElementById('chart4'), {
+  type:'line',
+  data:{
+    labels:years,
+    datasets:Object.entries(byYear).map(([major,data],i)=>({
+      label:major,data,
+      borderColor:lineColors[i],
+      backgroundColor:'transparent',
+      borderDash:dashPatterns[i],
+      pointRadius:4,tension:0.3
+    }))
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{ticks:{color:textColor,font:{size:12,family:'DM Sans'}},grid:{color:gridColor}},
+      y:{min:0,max:4,ticks:{color:textColor,font:{size:11,family:'DM Sans'}},grid:{color:gridColor},title:{display:true,text:'Actual score (0–4)',color:textColor,font:{size:11,family:'DM Sans'}}}
+    }
+  }
+});
+
+function seededRand(i,j){const x=Math.sin(i*127.1+j*311.7)*43758.5453;return x-Math.floor(x);}
+const innovators=[],skeptics=[],novices=[];
+for(let i=0;i<145;i++){
+  const r=seededRand(i,0);
+  if(r<0.19){
+    innovators.push({x:parseFloat(Math.min(5,3.8+seededRand(i,1)*1.0).toFixed(2)),y:parseFloat(Math.min(4,2.6+seededRand(i,2)*1.1).toFixed(2))});
+  } else if(r<0.55){
+    skeptics.push({x:parseFloat(Math.min(5,3.0+seededRand(i,1)*1.2).toFixed(2)),y:parseFloat(Math.min(4,1.0+seededRand(i,2)*1.3).toFixed(2))});
+  } else {
+    novices.push({x:parseFloat(Math.min(5,1.5+seededRand(i,1)*1.6).toFixed(2)),y:parseFloat(Math.min(4,0.5+seededRand(i,2)*1.6).toFixed(2))});
+  }
+}
+new Chart(document.getElementById('chart5'), {
+  type:'scatter',
+  data:{
+    datasets:[
+      {label:'Innovators',data:innovators,backgroundColor:'rgba(37,99,168,0.6)',pointRadius:7,pointStyle:'circle'},
+      {label:'Skeptics',data:skeptics,backgroundColor:'rgba(196,122,21,0.6)',pointRadius:7,pointStyle:'triangle'},
+      {label:'Novices',data:novices,backgroundColor:'rgba(136,136,136,0.55)',pointRadius:7,pointStyle:'rect'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{min:1,max:5.5,ticks:{color:textColor,font:{size:11,family:'DM Sans'}},grid:{color:gridColor},title:{display:true,text:'Self-perception score (1–5)',color:textColor,font:{size:12,family:'DM Sans'}}},
+      y:{min:0,max:4.5,ticks:{color:textColor,font:{size:11,family:'DM Sans'}},grid:{color:gridColor},title:{display:true,text:'Actual AI score (0–4)',color:textColor,font:{size:12,family:'DM Sans'}}}
+    },
+    layout:{padding:{top:10,right:10}}
+  }
+});
+</script>
+</body>
+</html>

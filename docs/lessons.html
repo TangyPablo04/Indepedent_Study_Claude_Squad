@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lessons Learned · FCB AI Aptitude Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-wordmark">FCB × AI</span>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="what-we-did.html">What We Did</a></li>
+    <li><a href="lessons.html" class="active">Lessons Learned</a></li>
+    <li><a href="charts.html">Mock Charts</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" onclick="toggleMenu()">&#9776;</button>
+</nav>
+
+<main class="page-main">
+
+  <div class="page-header">
+    <div class="page-label">Reflection</div>
+    <h1>Lessons Learned</h1>
+    <p class="page-intro">Our response rates did not reach the threshold needed for statistical conclusions. Rather than treat this as failure, we document the specific barriers we encountered and translate them into concrete recommendations for researchers who build on this work.</p>
+  </div>
+
+  <section class="lessons-section">
+
+    <h2 class="section-heading">Limitations</h2>
+
+    <div class="limitation-block">
+      <div class="limitation-tag">Survey design</div>
+      <h3>The tool was too complex for the context</h3>
+      <p>Our survey was built with research integrity in mind — multiple sections, open-ended scenarios, a chat interface. In practice, this meant a completion time of 12–18 minutes, which is high for a voluntary, in-class ask. Students who started often did not finish. The novelty of the interface (a chat-style AI interaction embedded in a survey) also created friction — some students were confused by the format, slowing them down and reducing completion rates.</p>
+    </div>
+
+    <div class="limitation-block">
+      <div class="limitation-tag">Participation</div>
+      <h3>Insufficient student interest</h3>
+      <p>Even with a raffle incentive, participation was lower than anticipated. AI literacy is not yet a topic most undergraduates feel personally invested in. Students who don't see immediate relevance to their coursework or career trajectory are unlikely to spend 15 minutes on a voluntary survey. The subject matter itself — assessing one's own AI readiness — may have also felt evaluative or threatening to some participants.</p>
+    </div>
+
+    <div class="limitation-block">
+      <div class="limitation-tag">Outreach</div>
+      <h3>Dependency on professor gatekeeping</h3>
+      <p>Our primary distribution channel was professor-mediated — we needed faculty to either give us class time or post our link on Canvas. This introduced significant variability. Professors who were enthusiastic about the topic drove most of our responses; professors who didn't respond left entire major populations underrepresented. Coverage in Marketing, Management, Supply Chain, and upper-division Finance was consistently thinner than lower-division courses.</p>
+    </div>
+
+    <div class="limitation-block">
+      <div class="limitation-tag">Data</div>
+      <h3>Insufficient responses for statistical inference</h3>
+      <p>Our target was ~400 respondents to support one-way ANOVA across six majors with adequate statistical power. We did not reach this threshold. As a result, we cannot make reliable claims about differences between majors, class levels, or cluster profiles. The mock charts in this project illustrate what those analyses would look like — they are not findings.</p>
+    </div>
+
+  </section>
+
+  <section class="lessons-section">
+
+    <h2 class="section-heading">Recommendations for future researchers</h2>
+
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-num">1</div>
+        <h3>Shorten the instrument</h3>
+        <p>Target 5–8 minutes max. Drop one scenario or reduce the knowledge check to 5 questions. Completion rate matters more than instrument depth at the recruitment stage.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">2</div>
+        <h3>Secure class time in advance</h3>
+        <p>Email professors at the start of the semester, not mid-semester. Ask for a specific 10-minute window rather than a Canvas post — live classroom deployment dramatically increases completion rates.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">3</div>
+        <h3>Simplify the interface</h3>
+        <p>Replace the chat-style open-ended interface with a plain text box. The conversational format added novelty but introduced confusion. A simpler interface lets respondents focus on content, not mechanics.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">4</div>
+        <h3>Stratify the sample intentionally</h3>
+        <p>Identify the exact courses that reach declared FCB majors at each level and map outreach to those courses explicitly. Intro-level courses may not reach declared majors. Target upper-division, major-specific sections.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">5</div>
+        <h3>Validate the scoring rubric</h3>
+        <p>Our AI scoring rubric across five dimensions (prompt engineering, task suitability, hallucination recognition, ethical risk, business reasoning) has not been validated against human raters. Future work should establish inter-rater reliability between Claude's scores and expert human evaluation.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-num">6</div>
+        <h3>Build on what exists</h3>
+        <p>The survey tool, database schema, scoring architecture, and question bank are all functional and deployable. Future researchers can fork the GitHub repo and iterate — no need to start from scratch.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="contribution-block">
+    <h2>What this project contributes</h2>
+    <p>Despite the data limitations, this project establishes something genuinely novel: a working instrument for measuring practical AI aptitude in a business student population. Most AI literacy assessments are self-reported only. Ours combines self-perception with a demonstrated performance component — scored by AI, blind to the respondent. That architecture is worth building on.</p>
+    <p>The codebase is open. The methodology is documented. The gaps are honest. That is a usable foundation.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Fowler College of Business · San Diego State University · 2026</p>
+  <p>Conducted under SDSU IRB guidelines · Claude Squad Independent Study</p>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

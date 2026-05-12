@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What We Did · FCB AI Aptitude Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-wordmark">FCB × AI</span>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="what-we-did.html" class="active">What We Did</a></li>
+    <li><a href="lessons.html">Lessons Learned</a></li>
+    <li><a href="charts.html">Mock Charts</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu" onclick="toggleMenu()">&#9776;</button>
+</nav>
+
+<main class="page-main">
+
+  <div class="page-header">
+    <div class="page-label">Process</div>
+    <h1>What We Did</h1>
+  </div>
+
+  <section class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker">01</div>
+      <div class="timeline-content">
+        <h2>Background Research</h2>
+        <p>We began by surveying existing literature on AI literacy in higher education and business contexts. Key questions: How is AI readiness typically measured? What dimensions matter — awareness, skill, attitude? We found that most existing instruments were either too technical (built for CS students) or too surface-level (general digital literacy surveys) to capture the nuanced AI readiness relevant to business graduates entering an AI-integrated workforce.</p>
+        <p>This gap became the foundation of our research design. We needed an instrument that could measure both what students <em>think</em> they know and what they can actually <em>do</em> with AI in a business context.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">02</div>
+      <div class="timeline-content">
+        <h2>S3 Symposium Work</h2>
+        <p>Our early framework was developed and presented at the S3 Symposium, where we articulated the research problem, proposed methodology, and initial instrument design. The Symposium served as a critical checkpoint — it forced us to clearly define what we were measuring and why, and gave us structured feedback before we built anything.</p>
+        <p>Out of this came our five core scoring dimensions: prompt engineering, task suitability, hallucination recognition, ethical risk awareness, and business reasoning. These became the backbone of the AI scoring rubric embedded in the survey tool.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">03</div>
+      <div class="timeline-content">
+        <h2>Building the Survey Tool</h2>
+        <p>Rather than use an off-the-shelf survey platform, we built a custom tool from scratch. This was intentional — and a deliberate step outside our comfort zone.</p>
+
+        <div class="tech-callout">
+          <div class="tech-callout-header">A note on our approach to coding</div>
+          <p>None of us came in as developers. Building this tool in Python and Streamlit required us to learn version control, cloud deployment, database architecture, and API integration alongside the research itself. We used Claude AI not just as the scoring engine but as a collaborator in the build — which gave us firsthand experience with exactly the kind of human-AI workflow we were studying.</p>
+        </div>
+
+        <p>The tool is structured as a multi-page application:</p>
+        <ul class="content-list">
+          <li><strong>Welcome &amp; screening</strong> — confirms FCB enrollment before proceeding</li>
+          <li><strong>Demographics</strong> — academic year and major</li>
+          <li><strong>Likert self-perception scale</strong> — five questions measuring how students perceive their own AI readiness</li>
+          <li><strong>Knowledge check</strong> — randomized multiple choice questions drawn from a Google Sheets question bank</li>
+          <li><strong>Business scenarios</strong> — two open-ended prompts (marketing and financial analysis) delivered via a chat interface, with a neutral AI follow-up per scenario</li>
+          <li><strong>Completion &amp; raffle</strong> — optional email entry for a BetterBuzz gift card incentive</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">04</div>
+      <div class="timeline-content">
+        <h2>Technical Architecture</h2>
+        <div class="arch-grid">
+          <div class="arch-card">
+            <div class="arch-label">App layer</div>
+            <div class="arch-value">Python · Streamlit</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">Deployment</div>
+            <div class="arch-value">Streamlit Community Cloud</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">Database</div>
+            <div class="arch-value">Supabase (PostgreSQL)</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">AI scoring</div>
+            <div class="arch-value">Anthropic API (Claude)</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">Question bank</div>
+            <div class="arch-value">Google Sheets (CSV feed)</div>
+          </div>
+          <div class="arch-card">
+            <div class="arch-label">Version control</div>
+            <div class="arch-value">GitHub (branch workflow)</div>
+          </div>
+        </div>
+        <p style="margin-top:1.5rem;">Scores are computed silently — respondents never see their AI aptitude scores. This was a deliberate design choice to prevent performance anxiety from influencing open-ended responses and to preserve data integrity.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-marker">05</div>
+      <div class="timeline-content">
+        <h2>Outreach &amp; Data Collection</h2>
+        <p>We targeted approximately 400 respondents across FCB majors and class levels, reaching students primarily through direct professor outreach — requesting class time or Canvas announcements. Outreach was conducted under SDSU IRB guidelines, with approval language included in all communications.</p>
+        <p>A BetterBuzz gift card raffle served as a participation incentive. Despite structured outreach efforts, response rates fell short of our target — the reasons for which are addressed in Lessons Learned.</p>
+        <div class="survey-link-box">
+          <p>The survey tool remains live and accessible.</p>
+          <a href="https://fcbaiaptitudesurvey.streamlit.app" target="_blank" class="btn-outline">Open the survey tool ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Fowler College of Business · San Diego State University · 2026</p>
+  <p>Conducted under SDSU IRB guidelines · Claude Squad Independent Study</p>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>
